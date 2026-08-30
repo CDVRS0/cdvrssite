@@ -1,0 +1,41 @@
+
+> cdvrs-site@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.121:3000
+✓ Ready in 307ms
+
+⨯ Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+    at ignore-listed frames {
+  digest: '1551114483'
+}
+ GET / 500 in 472ms (next.js: 107ms, application-code: 365ms)
+[browser] Uncaught Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Check the render method of `Home`.
+    at Home (app/page.tsx:20:7)
+  18 |       <AboutSection />
+  19 |       <MusicSection />
+> 20 |       <CYWSection />
+     |       ^
+  21 |     </main>
+  22 |   );
+  23 | }
+⨯ Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+    at ignore-listed frames {
+  digest: '1551114483'
+}
+ GET / 500 in 242ms (next.js: 7ms, application-code: 235ms)
+[browser] Uncaught Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Check the render method of `Home`.
+    at Home (app/page.tsx:20:7)
+  18 |       <AboutSection />
+  19 |       <MusicSection />
+> 20 |       <CYWSection />
+     |       ^
+  21 |     </main>
+  22 |   );
+  23 | }

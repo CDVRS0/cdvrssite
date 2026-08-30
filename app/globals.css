@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* =========================
+   CYW THEME TOKENS
+========================= */
+
+:root {
+  --background: 255 255 255;
+  --bg: var(--background);
+  --hero-background: 255 255 255;
+  --hero-accent: 59 130 246;
+  --foreground: 23 23 23;
+  --fg: var(--foreground);
+
+  --accent: 59 130 246; /* CYW blue */
+  --muted: 75 85 99;
+  --surface: 255 255 255;
+}
+
+.dark {
+  --background: 10 10 10;
+  --bg: var(--background);
+  --hero-background: 0 0 0;
+  --hero-accent: 255 255 255;
+  --foreground: 255 255 255;
+  --fg: var(--foreground);
+  --accent: 59 130 246;
+  --muted: 156 163 175;
+  --surface: 255 255 255;
+}
+
+/* CYW THEMES */
+.cyw-dark {
+  --background: 10 10 10;
+  --bg: var(--background);
+  --hero-background: 0 0 0;
+  --hero-accent: 255 255 255;
+  --foreground: 255 255 255;
+  --fg: var(--foreground);
+  --accent: 59 130 246;
+  --muted: 156 163 175;
+  --surface: 255 255 255;
+}
+
+.cyw-blue {
+  --background: 3 7 18;
+  --bg: var(--background);
+  --hero-background: 3 7 18;
+  --hero-accent: 96 165 250;
+  --foreground: 255 255 255;
+  --fg: var(--foreground);
+  --accent: 96 165 250;
+  --muted: 191 219 254;
+  --surface: 96 165 250;
+}
+
+.light,
+.cyw-light {
+  --background: 255 255 255;
+  --bg: var(--background);
+  --hero-background: 255 255 255;
+  --hero-accent: 37 99 235;
+  --foreground: 17 17 17;
+  --fg: var(--foreground);
+  --accent: 37 99 235;
+  --muted: 75 85 99;
+  --surface: 17 24 39;
+}
+
+/* =========================
+   GLOBAL BEHAVIOUR
+========================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
+
+  font-family: Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================
+   SECTION SCROLL SYSTEM
+========================= */
+
+section[data-scroll-section] {
+  min-height: 90vh;
+  scroll-margin-top: 90px;
+}
+
+/* =========================
+   MOBILE OPTIMISATION
+========================= */
+
+@media (max-width: 767px) {
+  section[data-scroll-section] {
+    min-height: auto;
+    scroll-margin-top: 112px;
+  }
+}

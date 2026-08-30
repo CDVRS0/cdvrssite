@@ -1,0 +1,17 @@
+
+> cdvrs-site@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.121:3000
+✓ Ready in 250ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3001
+- PID:          3664
+- Dir:          /Users/grindandghost/Desktop/cdvrs-site
+- Log:          .next/dev/logs/next-development.log
+
+Run kill 3664 to stop it.
+[?25h

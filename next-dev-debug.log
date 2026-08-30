@@ -1,0 +1,30 @@
+
+> cdvrs-site@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.121:3000
+✓ Ready in 310ms
+
+Navbar — raw type: function; resolved type: function; keys: 
+HeroSection — raw type: function; resolved type: function; keys: 
+AboutSection — raw type: function; resolved type: function; keys: 
+MusicSection — raw type: function; resolved type: function; keys: 
+CYWSection — raw type: object; resolved type: object; keys: 
+⨯ Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+    at ignore-listed frames {
+  digest: '2025924212'
+}
+ GET / 500 in 549ms (next.js: 134ms, application-code: 415ms)
+[browser] Uncaught Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Check the render method of `Home`.
+    at Home (app/page.tsx:37:7)
+  35 |       <AboutSection />
+  36 |       <MusicSection />
+> 37 |       <CYWSection />
+     |       ^
+  38 |     </main>
+  39 |   );
+  40 | }

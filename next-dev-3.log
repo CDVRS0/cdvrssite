@@ -1,0 +1,26 @@
+
+> cdvrs-site@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.121:3000
+✓ Ready in 283ms
+
+⨯ Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+    at ignore-listed frames {
+  digest: '3389212395'
+}
+ GET / 500 in 469ms (next.js: 111ms, application-code: 358ms)
+[browser] Uncaught Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Check the render method of `Home`.
+    at Home (app/page.tsx:10:7)
+   8 |     <>
+   9 |       <HeroSection />
+> 10 |       <AboutSection />
+     |       ^
+  11 |     </>
+  12 |   );
+  13 | }
+[?25h
