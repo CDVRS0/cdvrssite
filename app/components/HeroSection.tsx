@@ -21,7 +21,7 @@ export default function HeroSection() {
       className="relative h-screen w-full overflow-hidden bg-[rgb(var(--hero-background))] text-[rgb(var(--foreground))]"
     >
       <motion.img
-        src="/covers/ME.png"
+        src="/covers/ME.PNG"
         alt=""
         style={{ opacity, scale }}
         className="absolute inset-0 h-full w-full object-cover opacity-30 grayscale"

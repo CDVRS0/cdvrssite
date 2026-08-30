@@ -109,7 +109,7 @@ export default function AboutSection() {
 
           <div className="relative flex h-[500px] w-full items-end overflow-hidden border border-[rgb(var(--foreground))]/15 bg-black">
             <img
-              src="/covers/happy_c.jpg"
+              src="/covers/HAPPY_C.JPG"
               alt=""
               className="absolute inset-0 h-full w-full object-cover opacity-70 grayscale"
             />
