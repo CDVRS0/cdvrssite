@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 
 const socialLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "TikTok", href: "#" },
-  { label: "YouTube", href: "#" },
-  { label: "Spotify", href: "#" },
-  { label: "Apple Music", href: "#" },
-  { label: "vyb", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/camerondankwa/" },
+  { label: "TikTok", href: "https://www.tiktok.com/@cdvrs" },
+  { label: "YouTube", href: "https://www.youtube.com/@CDVRSWRLD " },
+  { label: "Spotify", href: "https://open.spotify.com/artist/1C1YzVPfV5sNBGwhMsNFRl?si=_MQQv0_QQtWYhvePJU_XzQ" },
+  { label: "Apple Music", href: "https://music.apple.com/id/artist/cdvrs/1888536908" },
+  { label: "All Music", href: "https://fan.fanaura.com/cdvrs" },
+  { label: "Shop CDVRS", href: "https://vyb.co/artists/cdvrs" },
 ];
 
 export default function ArtistConnectSection() {

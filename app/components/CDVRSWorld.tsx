@@ -7,7 +7,7 @@ const worlds = [
     title: "No Pressure",
     desc: "A creative label and artist discovery platform for new sounds, emerging talent, and curated releases.",
     href: "/no-pressure",
-    image: "/World/Studio/C0019.mov",
+    image: "/World/Studio/C0019.MOV",
   },
   {
     title: "CDVRS SPORTS",
