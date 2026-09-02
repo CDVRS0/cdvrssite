@@ -17,21 +17,21 @@ export default function Navbar() {
 
         <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-[0.16em] text-[rgb(var(--muted))] sm:gap-7">
 
-          <Link href="/#bio" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/?section=bio" className="transition hover:text-[rgb(var(--accent))]">
             Bio
           </Link>
 
-          <Link href="/#music" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/?section=music" className="transition hover:text-[rgb(var(--accent))]">
             Music
           </Link>
 
-          <Link href="/#socials" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/?section=socials" className="transition hover:text-[rgb(var(--accent))]">
             Socials
           </Link>
 
           <div className="group relative">
             <Link
-              href="/#cdvrswrld"
+              href="/?section=cdvrswrld"
               className="inline-flex transition hover:text-[rgb(var(--accent))]"
             >
               CDVRSWRLD
@@ -63,7 +63,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/#contact" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/?section=contact" className="transition hover:text-[rgb(var(--accent))]">
             Contact
           </Link>
 

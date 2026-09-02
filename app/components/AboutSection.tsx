@@ -93,8 +93,14 @@ export default function AboutSection() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 h-[320px] w-full border border-[rgb(var(--foreground))]/15 bg-['/covers/STREET_c.jpg'] bg-cover bg-center grayscale"
-          />
+            className="relative mt-10 h-[320px] w-full overflow-hidden border border-[rgb(var(--foreground))]/15 bg-black"
+          >
+            <img
+              src="/covers/STREET_C.JPG"
+              alt="Street culture and community"
+              className="h-full w-full object-cover grayscale"
+            />
+          </motion.div>
 
         </motion.div>
 

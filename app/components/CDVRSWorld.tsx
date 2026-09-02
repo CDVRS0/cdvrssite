@@ -78,7 +78,7 @@ export default function CDVRSWorld() {
                 className="group relative h-[380px] overflow-hidden rounded-3xl border border-[rgb(var(--background))]/15 bg-[rgb(var(--background))]/5"
               >
 
-                {item.image.endsWith(".mov") ? (
+                {item.image.toLowerCase().endsWith(".mov") ? (
                   <video
                     src={item.image}
                     className="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105"

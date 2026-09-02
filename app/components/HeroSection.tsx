@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 
 export default function HeroSection() {
@@ -51,19 +52,19 @@ export default function HeroSection() {
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <a
-            href="#music"
+          <Link
+            href="/?section=music"
             className="border border-white bg-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-black transition hover:bg-[rgb(var(--accent))] hover:text-white"
           >
             Listen Now
-          </a>
+          </Link>
 
-          <a
-            href="#socials"
+          <Link
+            href="/?section=socials"
             className="border border-white/30 px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]"
           >
             Connect
-          </a>
+          </Link>
         </div>
 
         <button

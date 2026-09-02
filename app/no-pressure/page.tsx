@@ -1,6 +1,8 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { motion } from "framer-motion";
+import Script from "next/script";
 import Navbar from "../components/Navbar";
 
 const fadeUp = {
@@ -15,9 +17,9 @@ const pillars = [
 ];
 
 const episodes = [
-  { id: "VIDEO_ID_1", label: "No Pressure · Ep. 001", title: "Add your episode title here", date: "2026" },
-  { id: "VIDEO_ID_2", label: "No Pressure · Ep. 002", title: "Add your episode title here", date: "2026" },
-  { id: "VIDEO_ID_3", label: "No Pressure · Ep. 003", title: "Add your episode title here", date: "2026" },
+  { id: "MuCM3-Ut9lg", label: "No Pressure · Ep. 005", title: "Like What", date: "2026" },
+  { id: "8a0CYftJU2c", label: "No Pressure · Ep. 004", title: "Said Enough?", date: "2026" },
+  { id: "6Vs_bD6ERUc", label: "No Pressure · Ep. 003", title: "Baby Mama/Freestyle 1", date: "2026" },
 ];
 
 const releases = [
@@ -27,31 +29,69 @@ const releases = [
 
 const contactLinks = [
   { label: "General & Submissions", val: "npglobalmusic@gmail.com", href: "mailto:npglobalmusic@gmail.com" },
-  { label: "Sync & Licensing", val: "sync@cdvrs.com", href: "mailto:sync@cdvrs.com" },
+  { label: "Sync & Licensing", val: "npglobalmusic@gmail.com", href: "mailto:npglobalmusic@gmail.com" },
   { label: "YouTube", val: "@CDVRSWRLD", href: "https://www.youtube.com/@CDVRSWRLD" },
 ];
 
-function handleSubmit() {
-  const name = (document.getElementById("np-name") as HTMLInputElement)?.value.trim();
-  const email = (document.getElementById("np-email") as HTMLInputElement)?.value.trim();
-  const subject = (document.getElementById("np-subject") as HTMLInputElement)?.value.trim();
-  const message = (document.getElementById("np-message") as HTMLTextAreaElement)?.value.trim();
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+
+  const data = new FormData(event.currentTarget);
+  const name = String(data.get("name") ?? "").trim();
+  const email = String(data.get("email") ?? "").trim();
+  const subject = String(data.get("subject") ?? "").trim();
+  const message = String(data.get("message") ?? "").trim();
+
   if (!name || !email || !message) {
     alert("Please fill in your name, email and message.");
     return;
   }
-  const body = "From: " + name + " (" + email + ")" + "%0A%0A" + message;
-  const sub = encodeURIComponent(subject || "No Pressure Enquiry");
-  window.location.href = "mailto:npglobalmusic@gmail.com?subject=" + sub + "&body=" + body;
+
+  if (!recaptchaSiteKey || !window.grecaptcha) {
+    alert("The security check is not ready. Please try again.");
+    return;
+  }
+
+  await new Promise<void>((resolve) => window.grecaptcha.ready(resolve));
+  const token = await window.grecaptcha.execute(recaptchaSiteKey, {
+    action: "contact_submit",
+  });
+  const verification = await fetch("/api/recaptcha", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token }),
+  });
+
+  if (!verification.ok) {
+    alert("Security verification failed. Please try again.");
+    return;
+  }
+
+  const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+  const encodedSubject = encodeURIComponent(subject || "No Pressure Enquiry");
+  window.location.href = `mailto:npglobalmusic@gmail.com?subject=${encodedSubject}&body=${body}`;
 }
 
 export default function NoPressurePage() {
   return (
     <div className="min-h-screen bg-[rgb(var(--background))] text-[rgb(var(--foreground))]">
+      {recaptchaSiteKey && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+          strategy="afterInteractive"
+        />
+      )}
       <Navbar />
 
       {/* HERO */}
       <section className="relative flex min-h-screen w-full flex-col justify-end overflow-hidden px-6 pb-24 pt-36 sm:px-10">
+        <img
+          src="/World/Studio/NEW NP.PNG"
+          alt="No Pressure creative label artwork"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 grayscale"
+        />
         <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_12px)] opacity-25" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_90%,rgba(var(--accent),0.18)_0%,transparent_65%)]" />
         <motion.div
@@ -70,7 +110,7 @@ export default function NoPressurePage() {
             A creative label and artist discovery platform for new sounds, emerging talent, curated releases, and artist development — spanning UK, France, Italy, and Ghana.
           </motion.p>
           <motion.div variants={fadeUp} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="#episodes" className="border border-white bg-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-black transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))] hover:text-white">
+            <a href="/no-pressure" className="border border-white bg-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-black transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))] hover:text-white">
               Watch Episodes
             </a>
             <a href="https://www.youtube.com/@CDVRSWRLD" target="_blank" rel="noopener noreferrer" className="border border-white/30 px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]">
@@ -185,25 +225,25 @@ export default function NoPressurePage() {
                 ))}
               </motion.div>
             </div>
-            <motion.div variants={fadeUp} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col gap-5">
+            <motion.form onSubmit={handleSubmit} variants={fadeUp} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col gap-5">
               {[
-                { id: "np-name", label: "Name", type: "text", placeholder: "Your name" },
-                { id: "np-email", label: "Email", type: "email", placeholder: "your@email.com" },
-                { id: "np-subject", label: "Subject", type: "text", placeholder: "Artist Submission / Press / Collab / General" },
+                { id: "np-name", name: "name", label: "Name", type: "text", placeholder: "Your name", required: true },
+                { id: "np-email", name: "email", label: "Email", type: "email", placeholder: "your@email.com", required: true },
+                { id: "np-subject", name: "subject", label: "Subject", type: "text", placeholder: "Artist Submission / Press / Collab / General", required: false },
               ].map((f) => (
                 <div key={f.id}>
                   <label htmlFor={f.id} className="mb-2 block font-mono text-[9px] uppercase tracking-[0.24em] text-white/30">{f.label}</label>
-                  <input id={f.id} type={f.type} placeholder={f.placeholder} className="w-full border border-[rgb(var(--foreground))]/15 bg-white/5 px-4 py-3 font-mono text-sm text-white placeholder-white/20 outline-none transition focus:border-[rgb(var(--accent))]/60" />
+                  <input id={f.id} name={f.name} type={f.type} required={f.required} placeholder={f.placeholder} className="w-full border border-[rgb(var(--foreground))]/15 bg-white/5 px-4 py-3 font-mono text-sm text-white placeholder-white/20 outline-none transition focus:border-[rgb(var(--accent))]/60" />
                 </div>
               ))}
               <div>
                 <label htmlFor="np-message" className="mb-2 block font-mono text-[9px] uppercase tracking-[0.24em] text-white/30">Message</label>
-                <textarea id="np-message" rows={5} placeholder="Tell us about your project or enquiry..." className="w-full resize-none border border-[rgb(var(--foreground))]/15 bg-white/5 px-4 py-3 font-mono text-sm text-white placeholder-white/20 outline-none transition focus:border-[rgb(var(--accent))]/60" />
+                <textarea id="np-message" name="message" required rows={5} placeholder="Tell us about your project or enquiry..." className="w-full resize-none border border-[rgb(var(--foreground))]/15 bg-white/5 px-4 py-3 font-mono text-sm text-white placeholder-white/20 outline-none transition focus:border-[rgb(var(--accent))]/60" />
               </div>
-              <button onClick={handleSubmit} className="border border-white bg-transparent px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))]">
+              <button type="submit" className="border border-white bg-transparent px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))]">
                 Send Message
               </button>
-            </motion.div>
+            </motion.form>
           </motion.div>
         </div>
       </section>

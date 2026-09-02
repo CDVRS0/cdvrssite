@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-[rgb(var(--foreground))]/15 bg-[rgb(var(--background))] py-20">
@@ -16,11 +18,11 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-wrap gap-8 font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
 
-          <a href="#bio">Bio</a>
-          <a href="#music">Music</a>
-          <a href="#socials">Socials</a>
-          <a href="#cdvrswrld">CDVRSWRLD</a>
-          <a href="#contact">Contact</a>
+          <Link href="/?section=bio">Bio</Link>
+          <Link href="/?section=music">Music</Link>
+          <Link href="/?section=socials">Socials</Link>
+          <Link href="/?section=cdvrswrld">CDVRSWRLD</Link>
+          <Link href="/?section=contact">Contact</Link>
 
         </div>
 
