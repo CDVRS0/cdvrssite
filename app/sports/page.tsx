@@ -4,7 +4,6 @@ import type { FormEvent } from "react";
 import Script from "next/script";
 import Navbar from "../components/Navbar";
 
-const takeoverVideoId = ""; // Add the YouTube video ID here.
 const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -84,6 +83,35 @@ export default function SportsPage() {
         </section>
 
         <section className="border-t border-white/10 px-6 py-24 sm:px-10">
+          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="mb-3 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
+                About Us
+              </p>
+              <h2 className="font-mono text-4xl font-black uppercase md:text-6xl">
+                More Than
+                <br />
+                The Game
+              </h2>
+              <p className="mt-6 max-w-xl leading-8 text-white/65">
+                CDVRS Sports exists to create a place where people can play,
+                express themselves, develop and belong. Basketball is the
+                foundation, but the greater purpose is to create pathways,
+                opportunities and community through sport.
+              </p>
+            </div>
+
+            <div className="aspect-[4/3] overflow-hidden border border-white/15 bg-white/5">
+              <img
+                src="/World/Sports/4.jpg"
+                alt="CDVRS Sports basketball event"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/10 px-6 py-24 sm:px-10">
           <div className="mx-auto max-w-6xl">
             <p className="mb-12 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
               The Movement
@@ -121,18 +149,16 @@ export default function SportsPage() {
 
             <div className="border border-white/15 bg-white/5">
               <div className="aspect-video bg-black">
-                {takeoverVideoId ? (
-                  <iframe
+                <video
+                  src="/World/Sports/takeover.mp4"
                     className="h-full w-full"
-                    src={`https://www.youtube.com/embed/${takeoverVideoId}`}
                     title="Takeover 3x3 Basketball highlights"
-                    allowFullScreen
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
                   />
-                ) : (
-                  <div className="flex h-full items-center justify-center px-6 text-center font-mono text-xs uppercase tracking-[0.2em] text-white/40">
-                    Add the Takeover 3x3 YouTube video ID
-                  </div>
-                )}
               </div>
 
               <div className="p-6">
@@ -146,33 +172,6 @@ export default function SportsPage() {
                   Highlights from the latest CDVRS Sports basketball event.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-white/10 px-6 py-24 sm:px-10">
-          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
-                About Us
-              </p>
-              <h2 className="font-mono text-4xl font-black uppercase md:text-6xl">
-                More Than
-                <br />
-                The Game
-              </h2>
-              <p className="mt-6 max-w-xl leading-8 text-white/65">
-                CDVRS Sports connects basketball, music, fashion, and community
-                through events and visual storytelling.
-              </p>
-            </div>
-
-            <div className="aspect-[4/3] overflow-hidden border border-white/15 bg-white/5">
-              <img
-                src="/images/cdvrs-sports-about.jpg"
-                alt="CDVRS Sports basketball event"
-                className="h-full w-full object-cover"
-              />
             </div>
           </div>
         </section>
