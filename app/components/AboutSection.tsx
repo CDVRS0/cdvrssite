@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -81,6 +82,13 @@ export default function AboutSection() {
             through No Pressure, music, beats and community together.   
 
           </motion.p>
+
+          <Link
+            href="/about"
+            className="mt-8 inline-block border-b border-[rgb(var(--accent))]/50 pb-1 font-mono text-xs uppercase tracking-[0.25em] text-[rgb(var(--accent))] transition hover:border-[rgb(var(--accent))]"
+          >
+            Learn More
+          </Link>
 
           {/* KEY POINTS */}
           <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 
 const fadeUp = {
@@ -129,6 +130,13 @@ export default function MusicSection() {
             ))}
 
           </div>
+
+          <Link
+            href="/music"
+            className="mt-10 inline-block border-b border-[rgb(var(--accent))]/50 pb-1 font-mono text-xs uppercase tracking-[0.25em] text-[rgb(var(--accent))] transition hover:border-[rgb(var(--accent))]"
+          >
+            Learn More
+          </Link>
         </div>
       </div>
 
