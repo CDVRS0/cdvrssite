@@ -59,7 +59,7 @@ export default function ArtistConnectSection() {
           className="relative min-h-[520px] overflow-hidden border border-[rgb(var(--foreground))]/15 bg-black"
         >
           <video
-            src="/World/Studio/0218.mov"
+            src="/World/Studio/0219.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-60 grayscale"
             autoPlay
             muted
