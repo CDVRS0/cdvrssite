@@ -8,22 +8,24 @@ export default function AboutPage() {
     <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 pb-24 pt-36 text-[rgb(var(--foreground))]">
       <Navbar />
 
+      <div className="pointer-events-none fixed inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_12px)] opacity-20" />
+
       {/* HERO */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center max-w-4xl mx-auto"
+        className="relative mx-auto max-w-6xl text-left"
       >
         <p className="font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
           ABOUT CDVRS
         </p>
 
-        <h1 className="mt-6 font-mono text-5xl font-black uppercase leading-none md:text-8xl">
+        <h1 className="mt-6 max-w-5xl font-mono text-[15vw] font-black uppercase leading-[0.85] md:text-[9vw]">
           Cameron Dankwa, CDVRS
         </h1>
 
-        <p className="mt-8 text-[rgb(var(--muted))] leading-7 text-lg">
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">
           Cameron Dankwa, known as CDVRS, is a UK-based producer, artist,
           engineer, and creative visionary blending cinematic production,
           atmospheric sound design, and emotionally driven music.

@@ -44,24 +44,26 @@ export default function MusicPage() {
     <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 pb-24 pt-36 text-[rgb(var(--foreground))]">
       <Navbar />
 
+      <div className="pointer-events-none fixed inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_12px)] opacity-20" />
+
       {/* HEADER */}
       <motion.div
         initial="hidden"
         animate="show"
         variants={fadeUp}
         transition={{ duration: 0.8 }}
-        className="text-center max-w-3xl mx-auto"
+        className="relative mx-auto max-w-6xl text-left"
       >
-        <p className="text-xs tracking-[0.4em] text-[rgb(var(--muted))] uppercase">
+        <p className="font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
           MUSIC
         </p>
 
-        <h1 className="mt-6 text-5xl md:text-7xl font-light">
+        <h1 className="mt-6 font-mono text-[15vw] font-black uppercase leading-[0.85] md:text-[9vw]">
           CDVRS Discography
         </h1>
 
-        <p className="mt-6 text-[rgb(var(--muted))]">
-          Releases, experiments, and sonic world-building inside CYW.
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">
+          Official releases from CDVRS: singles, EPs, collaborations, and sonic chapters built to introduce the artist first.
         </p>
       </motion.div>
 
