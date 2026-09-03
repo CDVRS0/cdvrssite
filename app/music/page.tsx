@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -40,7 +41,8 @@ export default function MusicPage() {
   const current = active !== null ? releases[active] : null;
 
   return (
-    <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 py-24 text-[rgb(var(--foreground))]">
+    <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 pb-24 pt-36 text-[rgb(var(--foreground))]">
+      <Navbar />
 
       {/* HEADER */}
       <motion.div
