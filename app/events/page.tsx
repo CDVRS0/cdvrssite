@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar";
 
 const events = [
   { number: "01", title: "Takeover 3x3", type: "Basketball", description: "A competitive 3x3 basketball experience bringing players and community together." },
-  { number: "02", title: "CYW Workshop", type: "Creative Workshop", description: "A space for ideas, conversation, and creative development across the CDVRS world." },
-  { number: "03", title: "Listening Sessions", type: "Music", description: "Shared moments around new music, releases, and the stories behind the sound." },
+  { number: "02", title: "CD4Q Runs", type: "Creative Workshop", description: "Open basketball runs for the community." },
+  { number: "03", title: "Upcoming Shows ", type: "Music", description: "TBC" },
 ];
 
 export default function EventsPage() {
