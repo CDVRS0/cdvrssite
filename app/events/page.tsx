@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 const events = [
   { number: "01", title: "Takeover 3x3", type: "Basketball", description: "A competitive 3x3 basketball experience bringing players and community together." },
-  { number: "02", title: "CD4Q Runs", type: "Creative Workshop", description: "Open basketball runs for the community." },
+  { number: "02", title: "CD4Q Runs", type: "Scrimmages", description: "Open basketball runs for the community." },
   { number: "03", title: "Upcoming Shows ", type: "Music", description: "TBC" },
 ];
 
