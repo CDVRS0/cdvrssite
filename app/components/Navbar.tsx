@@ -25,6 +25,14 @@ export default function Navbar() {
             Music
           </Link>
 
+          <Link href="/events" className="transition hover:text-[rgb(var(--accent))]">
+            Events
+          </Link>
+
+          <Link href="/shop" className="transition hover:text-[rgb(var(--accent))]">
+            Shop
+          </Link>
+
           <Link href="/?section=socials" className="transition hover:text-[rgb(var(--accent))]">
             Socials
           </Link>
