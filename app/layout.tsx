@@ -3,11 +3,25 @@ import Script from "next/script";
 import Providers from "./providers";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cdvrswrld.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cdvrswrld.com"),
+  metadataBase: new URL(siteUrl),
   icons: {
-    icon: "/World/Studio/CDV LOGO.png",
-    apple: "/World/Studio/CDV LOGO.png",
+    icon: [
+      {
+        url: "/World/Studio/CDV%20LOGO.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+    ],
+    apple: [
+      {
+        url: "/World/Studio/CDV%20LOGO.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+    ],
   },
   title: {
     default: "CDVRS | Artist, Producer & Creative Visionary",
@@ -53,10 +67,10 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "CDVRS",
-    url: "https://cdvrswrld.com",
+    url: siteUrl,
     jobTitle: "Artist and Producer",
     description: "UK-based artist, producer, and creative visionary.",
-    image: "https://cdvrswrld.com/covers/ME.PNG",
+    image: `${siteUrl}/covers/ME.PNG`,
     sameAs: [
       "https://www.instagram.com/camerondankwa/",
       "https://www.tiktok.com/@cdvrs",
