@@ -37,7 +37,7 @@ export default function AboutSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="mt-4 font-mono text-4xl font-black uppercase leading-none md:text-6xl"
           >
-            CDVRS is a UK-based producer/artist, and creative visionary known 
+            Cameron Dankwa 'CDVRS' is a UK-based producer/artist, and creative visionary known 
             for blending cinematic production, atmospheric sound design, and emotionally 
             driven music into a distinct artistic identity.
           </motion.h2>
@@ -48,7 +48,7 @@ export default function AboutSection() {
             className="mt-6 leading-relaxed text-[rgb(var(--muted))]"
           >
             His passion began in school, where he immersed himself in music
-            early on. In university, he started engineering, and during the
+            early on. In university, Cameron started engineering, and during the
             COVID-19 lockdowns, he took the chance to dive deeper into
             production, experimenting with Logic and FL Studio while learning
             from legends like Dr. Dre, Timbaland, Pharrell, and Kanye West.
@@ -66,7 +66,7 @@ export default function AboutSection() {
             and commercial music.
             <br />
             <br />
-            His artistic inspirations stem from Pharrell Williams, Kanye West,
+            Cameron's artistic inspirations stem from Pharrell Williams, Kanye West,
             Michael Jackson, Wu-Tang Clan, and Dr. Dre.
           </motion.p>
 
