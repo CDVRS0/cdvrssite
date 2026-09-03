@@ -40,7 +40,7 @@ export default function MusicPage() {
   const current = active !== null ? releases[active] : null;
 
   return (
-    <div className="min-h-screen w-full bg-[rgb(var(--bg))] text-[rgb(var(--fg))] px-6 py-24">
+    <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 py-24 text-[rgb(var(--foreground))]">
 
       {/* HEADER */}
       <motion.div
@@ -75,7 +75,7 @@ export default function MusicPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
             transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="group cursor-pointer rounded-2xl border border-[rgb(var(--fg))]/10 bg-[rgb(var(--fg))]/5 overflow-hidden transition hover:-translate-y-1 hover:bg-[rgb(var(--fg))]/10"
+            className="group cursor-pointer overflow-hidden rounded-2xl border border-[rgb(var(--foreground))]/10 bg-[rgb(var(--foreground))]/5 transition hover:-translate-y-1 hover:bg-[rgb(var(--foreground))]/10"
           >
 
             {/* COVER */}
@@ -123,7 +123,7 @@ export default function MusicPage() {
             onClick={() => setActive(null)}
           >
             <motion.div
-              className="w-[90%] max-w-lg rounded-2xl border border-white/10 bg-[rgb(var(--bg))] p-6 text-center"
+              className="w-[90%] max-w-lg rounded-2xl border border-white/10 bg-[rgb(var(--background))] p-6 text-center"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -153,14 +153,14 @@ export default function MusicPage() {
               {/* ACTION */}
               <button
                 onClick={() => window.open(current.link, "_blank")}
-                className="mt-6 w-full rounded-lg bg-[rgb(var(--fg))]/10 py-3 text-sm hover:bg-[rgb(var(--fg))]/20 transition"
+                className="mt-6 w-full rounded-lg bg-[rgb(var(--foreground))]/10 py-3 text-sm transition hover:bg-[rgb(var(--foreground))]/20"
               >
                 Open Release →
               </button>
 
               <button
                 onClick={() => setActive(null)}
-                className="mt-4 text-xs text-[rgb(var(--muted))] hover:text-[rgb(var(--fg))]"
+                className="mt-4 text-xs text-[rgb(var(--muted))] hover:text-[rgb(var(--foreground))]"
               >
                 Close
               </button>
