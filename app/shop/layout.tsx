@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Shop CDVRS",
   description:
-    "Shop CDVRS merchandise, clothing, and creative products from the CDVRSWRLD world.",
+    "Explore the CDVRS artist store, support the music and find beats through CDVLabs.",
   alternates: { canonical: "/shop" },
   openGraph: {
     title: "Shop CDVRS",
-    description: "Explore CDVRS clothing and creative products.",
+    description: "Explore the CDVRS artist store and support the music.",
     url: "/shop",
   },
 };

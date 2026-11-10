@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CDVRS Music Catalog",
+  title: "CDVRS Discography & Credits",
   description:
-    "Explore the CDVRS music catalog, including the Southbound EP, Peace Vs Chaos, Amsterdam Remix, and future releases.",
+    "Explore CDVRS releases, No Pressure collaborations and production, mixing and mastering credits. Listen to SOUTHBOUND and browse the discography.",
   alternates: { canonical: "/music" },
   openGraph: {
-    title: "CDVRS Music Catalog",
+    title: "CDVRS Discography & Credits",
     description:
       "Listen to releases and discover the evolving sound of CDVRS, a UK-based artist and producer.",
     url: "/music",

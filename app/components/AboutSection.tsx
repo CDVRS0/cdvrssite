@@ -1,144 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
 
 export default function AboutSection() {
   return (
-    <div
-      id="bio"
-      className="relative w-full border-y border-[rgb(var(--foreground))]/10 bg-[rgb(var(--background))] text-[rgb(var(--foreground))]"
-    >
-      <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_96px)] opacity-40" />
-
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2 py-24 md:py-32">
-
-        {/* LEFT */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="font-mono text-xs uppercase tracking-[0.35em] text-[rgb(var(--accent))]"
-          >
-            Artist Bio
-          </motion.p>
-
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-mono text-4xl font-black uppercase leading-none md:text-6xl"
-          >
-            Cameron Dankwa 'CDVRS' is a UK-based producer/artist, and creative visionary known 
-            for blending cinematic production, atmospheric sound design, and emotionally 
-            driven music into a distinct artistic identity.
-          </motion.h2>
-
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 leading-relaxed text-[rgb(var(--muted))]"
-          >
-            His passion began in school, where he immersed himself in music
-            early on. In university, Cameron started engineering, and during the
-            COVID-19 lockdowns, he took the chance to dive deeper into
-            production, experimenting with Logic and FL Studio while learning
-            from legends like Dr. Dre, Timbaland, Pharrell, and Kanye West.
-            What started as beat-making soon evolved into a deeper love for
-            mixing. CD taught himself by watching tutorials and mixing vocals
-            for friends, eventually releasing his debut track Da Interlude with
-            BabyBell, now MUDMUNI.
-            <br />
-            <br />
-            By summer 2020, CD expanded his work across university networks,
-            connecting with artists across the UK. In 2022, he launched No
-            Pressure, a creative platform now working with talent across France,
-            Italy, Ghana, and beyond. Today, CDVRS runs his own artist world and
-            Grind and Ghost Records, continuing to shape his sound across urban
-            and commercial music.
-            <br />
-            <br />
-            Cameron's artistic inspirations stem from Pharrell Williams, Kanye West,
-            Michael Jackson, Wu-Tang Clan, and Dr. Dre.
-          </motion.p>
-
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 leading-relaxed text-[rgb(var(--muted))]"
-          >
-            CDVRSWRLD exists as the wider creative platform, but sits
-            beside the artist identity. The platform expands the world around him.
-            CDVRSWRLD is his world where he merges basketball events, artist discovery 
-            through No Pressure, music, beats and community together.   
-
-          </motion.p>
-
-          <Link
-            href="/about"
-            className="mt-8 inline-block border-b border-[rgb(var(--accent))]/50 pb-1 font-mono text-xs uppercase tracking-[0.25em] text-[rgb(var(--accent))] transition hover:border-[rgb(var(--accent))]"
-          >
-            Learn More
-          </Link>
-
-          {/* KEY POINTS */}
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 space-y-2 text-sm text-[rgb(var(--muted))]"
-          >
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mt-10 h-[320px] w-full overflow-hidden border border-[rgb(var(--foreground))]/15 bg-black"
-          >
-            <img
-              src="/covers/STREET_C.JPG"
-              alt="Street culture and community"
-              className="h-full w-full object-cover grayscale"
-            />
-          </motion.div>
-
-        </motion.div>
-
-        {/* RIGHT */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
-        >
-
-          <div className="relative flex h-[500px] w-full items-end overflow-hidden border border-[rgb(var(--foreground))]/15 bg-black">
-            <img
-              src="/covers/HAPPY_C.JPG"
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover opacity-70 grayscale"
-            />
-
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-            <p className="relative p-8 font-mono text-xs uppercase tracking-[0.35em] text-white/70">
-              CDVRS
-            </p>
-
+    <section id="bio" className="scroll-mt-28 px-6 py-20 sm:px-10 md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
+        <div className="relative pb-8 pr-8">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image src="/covers/HAPPY_C.JPG" alt="Cameron Dankwa smiling outside in sunglasses" fill sizes="(max-width: 1023px) 100vw, 50vw" className="object-cover object-[center_35%]" />
           </div>
-        </motion.div>
-
-
+          <div className="absolute bottom-0 right-0 border border-[rgb(var(--foreground))]/20 bg-[rgb(var(--background))] px-6 py-5">
+            <p className="font-mono text-xs uppercase tracking-[0.2em]">Cameron Dankwa</p>
+            <p className="mt-1 text-sm text-[rgb(var(--muted))]">The person behind CDVRS.</p>
+          </div>
+        </div>
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgb(var(--accent))]">A little about me</p>
+          <h2 className="mt-5 font-mono text-4xl font-black uppercase leading-none sm:text-6xl">I’m Cameron.<br />The music<br />is CDVRS.</h2>
+          <p className="mt-7 text-lg leading-8 text-[rgb(var(--muted))]">I’m a UK-based recording artist, producer and mixing/mastering engineer. My world moves between making records, working with artists and bringing people together.</p>
+          <p className="mt-5 leading-8 text-[rgb(var(--muted))]">Production started with experimenting in Logic and FL Studio. Mixing vocals for friends became a craft of its own. Along the way, music grew into No Pressure, CDVLabs and a wider world of basketball, culture and community.</p>
+          <div className="mt-8 border-y border-[rgb(var(--foreground))]/15 py-5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[rgb(var(--accent))]">In the inspiration folder</p>
+            <p className="mt-3 text-sm leading-7 text-[rgb(var(--muted))]">Pharrell · Timbaland · Dr. Dre · Kanye West · Michael Jackson · Wu-Tang Clan</p>
+          </div>
+          <div className="mt-7 flex flex-wrap gap-5 text-sm">
+            <Link href="/about" className="underline underline-offset-4">More of my story →</Link>
+            <Link href="/music#credits" className="text-[rgb(var(--muted))] underline underline-offset-4">The work behind the records →</Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

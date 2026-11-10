@@ -5,7 +5,9 @@ import CDVRSWorld from "./components/CDVRSWorld";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import HomeSectionScroller from "./components/HomeSectionScroller";
+import MusicVideos from "./components/MusicVideos";
 import MusicSection from "./components/MusicSection";
+import PressSection from "./components/PressSection";
 import Navbar from "./components/Navbar";
 
 export default function Home() {
@@ -16,10 +18,12 @@ export default function Home() {
         <HomeSectionScroller />
       </Suspense>
       <HeroSection />
-      <AboutSection />
       <MusicSection />
-      <ArtistConnectSection />
+      <MusicVideos />
+      <AboutSection />
       <CDVRSWorld />
+      <PressSection />
+      <ArtistConnectSection />
       <Footer />
     </main>
   );

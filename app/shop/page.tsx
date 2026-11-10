@@ -16,7 +16,7 @@ export default function ShopPage() {
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <p className="font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">CDVRSWRLD</p>
             <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="mt-6 font-mono text-[18vw] font-black uppercase leading-[0.85] md:text-[10vw]">Shop</motion.h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">Clothing and creative products from the CDVRS world, available through the official external store.</p>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">Support the music. Explore CDVRS releases through the official artist store.</p>
             <a href={shopUrl} target="_blank" rel="noopener noreferrer" className="mt-10 inline-block border border-white bg-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-black transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))] hover:text-white">Visit Store</a>
           </div>
         </section>
@@ -24,9 +24,10 @@ export default function ShopPage() {
         <section className="border-t border-[rgb(var(--foreground))]/10 px-6 py-24 sm:px-10">
           <div className="mx-auto max-w-6xl">
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">Official Store</p>
-            <h2 className="font-mono text-4xl font-black uppercase leading-none md:text-6xl">Wear the world</h2>
-            <p className="mt-6 max-w-2xl leading-8 text-[rgb(var(--muted))]">Find CDVRS clothing and products through the official artist store. The link opens in a new tab so you can return to CDVRSWRLD whenever you are ready.</p>
+            <h2 className="font-mono text-4xl font-black uppercase leading-none md:text-6xl">Support the records</h2>
+            <p className="mt-6 max-w-2xl leading-8 text-[rgb(var(--muted))]">Explore the CDVRS artist store on VYB. Check the store for current releases, availability and purchase options. The link opens in a new tab.</p>
             <a href={shopUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-block border-b border-[rgb(var(--accent))]/50 pb-1 font-mono text-xs uppercase tracking-[0.25em] text-[rgb(var(--accent))] transition hover:border-[rgb(var(--accent))]">Open CDVRS Store</a>
+            <a href="https://beats.cdvrswrld.com/" target="_blank" rel="noopener noreferrer" className="mt-8 ml-6 inline-block underline underline-offset-4">Looking for beats? Explore CDVLabs ↗</a>
           </div>
         </section>
       </main>

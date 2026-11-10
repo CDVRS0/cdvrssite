@@ -1,179 +1,53 @@
-"use client";
-
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Discography from "../components/Discography";
+import CreditsSection from "../components/CreditsSection";
+import MusicVideos from "../components/MusicVideos";
+import releases from "../data/discography.json";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
-
-const releases = [
-  {
-    type: "EP",
-    title: "SOUTHBOUND",
-    desc: "CDVRS' debut EP",
-    year: "2026",
-    cover: "/covers/Southbound.png",
-    link: "https://link.grindandghost.com/cdpvsc",
-  },
-  {
-    type: "Single",
-    title: "PEACE VS CHAOS",
-    desc: "CDVRS explores duality and contrast.",
-    year: "2026",
-    cover: "/covers/PEACE_VS_ CHAOS.png",
-    link: "https://link.grindandghost.com/cdpvsc",
-  },
-  {
-    type: "Single",
-    title: "Amsterdam Remix",
-    desc: "PALMZZ X CDVRS",
-    year: "2025",
-    cover: "/covers/Amsterdam_Remix.png",
-    link: "https://too.fm/2vppndw",
-  },
-];
+const southbound = releases.find((release) => release.title === "SOUTHBOUND")!;
 
 export default function MusicPage() {
-  const [active, setActive] = useState<number | null>(null);
-  const current = active !== null ? releases[active] : null;
-
   return (
-    <div className="min-h-screen w-full bg-[rgb(var(--background))] px-6 pb-24 pt-36 text-[rgb(var(--foreground))]">
+    <div className="min-h-screen bg-[rgb(var(--background))] text-[rgb(var(--foreground))]">
       <Navbar />
-
-      <div className="pointer-events-none fixed inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_12px)] opacity-20" />
-
-      {/* HEADER */}
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={fadeUp}
-        transition={{ duration: 0.8 }}
-        className="relative mx-auto max-w-6xl text-left"
-      >
-        <p className="font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
-          MUSIC
-        </p>
-
-        <h1 className="mt-6 font-mono text-[15vw] font-black uppercase leading-[0.85] md:text-[9vw]">
-          CDVRS Discography
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">
-          Official releases from CDVRS: singles, EPs, collaborations, and sonic chapters built to introduce the artist first.
-        </p>
-      </motion.div>
-
-      {/* GRID */}
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-        {releases.map((item, i) => (
-          <motion.div
-            key={i}
-            onClick={() => setActive(i)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeUp}
-            transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="group cursor-pointer overflow-hidden rounded-2xl border border-[rgb(var(--foreground))]/10 bg-[rgb(var(--foreground))]/5 transition hover:-translate-y-1 hover:bg-[rgb(var(--foreground))]/10"
-          >
-
-            {/* COVER */}
-            <div className="relative h-56 w-full overflow-hidden">
-              <img
-                src={item.cover}
-                alt={item.title}
-                className="h-full w-full object-cover scale-105 group-hover:scale-110 transition duration-700"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+      <main>
+        <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 pt-44 sm:px-10 lg:grid-cols-2 lg:items-center xl:px-0">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgb(var(--accent))]">CDVRS · Music</p>
+            <h1 className="mt-5 font-mono text-6xl font-black uppercase leading-[0.95] sm:text-8xl">A world<br />in sound.</h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[rgb(var(--muted))]">The records, collaborations and sounds of CDVRS. Start with SOUTHBOUND, then explore the catalogue and the work behind the music.</p>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm">
+              <a href="#discography" className="bg-[rgb(var(--foreground))] px-6 py-4 font-bold text-[rgb(var(--background))]">Explore discography</a>
+              <a href="#music-videos" className="border border-[rgb(var(--foreground))]/30 px-6 py-4">Watch music videos</a>
+              <a href="#credits" className="border border-[rgb(var(--foreground))]/30 px-6 py-4">Production &amp; engineering credits</a>
             </div>
-
-            {/* INFO */}
-            <div className="p-5">
-              <p className="text-xs tracking-[0.3em] text-[rgb(var(--accent))]">
-                {item.type} • {item.year}
-              </p>
-
-              <h2 className="mt-2 text-lg font-light">
-                {item.title}
-              </h2>
-
-              <p className="mt-2 text-sm text-[rgb(var(--muted))]">
-                {item.desc}
-              </p>
-
-              <p className="mt-5 text-xs tracking-[0.3em] text-[rgb(var(--muted))] group-hover:text-[rgb(var(--accent))] transition">
-                LISTEN →
-              </p>
+          </div>
+          <div className="relative aspect-square overflow-hidden border border-[rgb(var(--foreground))]/15">
+            <Image src="/covers/Southbound.png" alt="SOUTHBOUND by CDVRS cover artwork" fill sizes="(max-width: 1023px) 100vw, 50vw" preload className="object-cover" />
+          </div>
+        </section>
+        <section aria-labelledby="featured-release" className="border-y border-[rgb(var(--foreground))]/15 px-6 py-16 sm:px-10">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-[rgb(var(--accent))]">Featured project · 2026</p>
+              <h2 id="featured-release" className="mt-4 font-mono text-4xl font-black sm:text-6xl">SOUTHBOUND</h2>
+              <p className="mt-6 max-w-xl leading-8 text-[rgb(var(--muted))]">Three tracks. Three states of mind. REFLECT, SOUTHBOUND and BAKE move through lo-fi hip-hop, Miami bass and amapiano — a project shaped by atmosphere, warmth and movement.</p>
+              <div className="mt-6 flex flex-wrap gap-5 text-sm">
+                <a href={southbound.spotify} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Listen on Spotify ↗</a>
+                <a href={southbound.apple} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Apple Music ↗</a>
+                <a href="https://diymusician.cdbaby.com/news/artist-release-roundup-june-2026/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Read the CD Baby feature ↗</a>
+              </div>
             </div>
-          </motion.div>
-        ))}
-
-      </div>
-
-      {/* MODAL PLAYER */}
-      <AnimatePresence>
-        {active !== null && current && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActive(null)}
-          >
-            <motion.div
-              className="w-[90%] max-w-lg rounded-2xl border border-white/10 bg-[rgb(var(--background))] p-6 text-center"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-
-              {/* COVER */}
-              <img
-                src={current.cover}
-                alt={current.title}
-                className="w-full h-64 object-cover rounded-xl"
-              />
-
-              {/* TEXT */}
-              <p className="mt-5 text-xs tracking-[0.3em] text-[rgb(var(--accent))]">
-                NOW PLAYING
-              </p>
-
-              <h2 className="mt-2 text-2xl font-light">
-                {current.title}
-              </h2>
-
-              <p className="mt-3 text-sm text-[rgb(var(--muted))]">
-                {current.desc}
-              </p>
-
-              {/* ACTION */}
-              <button
-                onClick={() => window.open(current.link, "_blank")}
-                className="mt-6 w-full rounded-lg bg-[rgb(var(--foreground))]/10 py-3 text-sm transition hover:bg-[rgb(var(--foreground))]/20"
-              >
-                Open Release →
-              </button>
-
-              <button
-                onClick={() => setActive(null)}
-                className="mt-4 text-xs text-[rgb(var(--muted))] hover:text-[rgb(var(--foreground))]"
-              >
-                Close
-              </button>
-
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+            <iframe title="Listen to SOUTHBOUND by CDVRS on Spotify" src="https://open.spotify.com/embed/album/5wjmUNQHPoRSoVRvpMVhZJ" height="352" loading="lazy" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" className="w-full rounded-xl border-0" />
+          </div>
+        </section>
+        <MusicVideos />
+        <Discography />
+        <CreditsSection />
+      </main>
+      <Footer />
     </div>
   );
 }

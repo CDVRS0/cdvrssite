@@ -21,7 +21,7 @@ export default function Navbar() {
             Bio
           </Link>
 
-          <Link href="/?section=music" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/music" className="transition hover:text-[rgb(var(--accent))]">
             Music
           </Link>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/?section=contact" className="transition hover:text-[rgb(var(--accent))]">
+          <Link href="/contact" className="transition hover:text-[rgb(var(--accent))]">
             Contact
           </Link>
 

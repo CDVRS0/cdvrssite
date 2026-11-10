@@ -1,85 +1,46 @@
-"use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import catalogue from "../data/discography.json";
+
+const southbound = catalogue.find((release) => release.title === "SOUTHBOUND")!;
 
 export default function HeroSection() {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
-
   return (
-    <section
-      ref={ref}
-      className="relative h-screen w-full overflow-hidden bg-[rgb(var(--hero-background))] text-[rgb(var(--foreground))]"
-    >
-      <motion.img
-        src="/covers/ME.PNG"
-        alt=""
-        style={{ opacity, scale }}
-        className="absolute inset-0 h-full w-full object-cover opacity-30 grayscale"
-      />
-
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92),rgba(0,0,0,0.42),rgba(0,0,0,0.92))]" />
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_12px)] opacity-30" />
-      <div className="absolute bottom-8 left-0 flex w-[200%] gap-10 font-mono text-[12vw] font-black uppercase leading-none tracking-[0.05em] text-white/10">
-        <span>CDVRS CDVRS CDVRS CDVRS</span>
-        <span>CDVRS CDVRS CDVRS CDVRS</span>
+    <section className="relative overflow-hidden bg-[#101010] px-6 pb-16 pt-44 text-white sm:px-10 sm:pt-32 lg:pb-20 lg:pt-36">
+      <div className="pointer-events-none absolute inset-0 sm:hidden" aria-hidden="true">
+        <Image src="/covers/ME.PNG" alt="" fill sizes="100vw" className="object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-[#101010]" />
       </div>
-
-      <motion.div
-        style={{ opacity, y }}
-        className="relative z-10 flex h-full w-full flex-col justify-end px-6 pb-24 pt-32 text-left sm:px-10 md:pb-28"
-      >
-        <p className="mb-6 max-w-xl font-mono text-xs uppercase tracking-[0.35em] text-white/60">
-          Artist • Producer •
-        </p>
-
-        <h1 className="font-mono text-[22vw] font-black uppercase leading-[0.78] tracking-[0.02em] text-white md:text-[13vw]">
-          CDVRS
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70">
-          The official artist website. 
-        </p>
-
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/?section=music"
-            className="border border-white bg-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-black transition hover:bg-[rgb(var(--accent))] hover:text-white"
-          >
-            Listen Now
-          </Link>
-
-          <Link
-            href="/?section=socials"
-            className="border border-white/30 px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]"
-          >
-            Connect
-          </Link>
+      <div className="relative mx-auto grid max-w-7xl gap-10 sm:grid-cols-[1.1fr_0.9fr] sm:items-center lg:gap-12">
+        <div className="relative z-10">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/65">Recording artist · Producer</p>
+          <h1 className="mt-7 font-mono text-[24vw] font-black uppercase leading-[0.8] tracking-[-0.06em] sm:text-[13vw] lg:text-[clamp(5rem,13.5vw,12rem)]">CDVRS</h1>
+          <p className="mt-7 font-mono text-2xl font-bold uppercase tracking-tight sm:text-2xl lg:text-4xl">Create your world.</p>
+          <p className="mt-6 max-w-lg text-base leading-7 text-white/70 lg:text-lg lg:leading-8">For the headphones. For the dancefloor. For the journey in between. Explore the music and the world of Cameron Dankwa.</p>
+          <div className="mt-8 flex flex-wrap gap-3 text-sm">
+            <Link href="/#music" className="bg-white px-6 py-4 font-bold text-black transition hover:bg-amber-200">Start listening ↓</Link>
+            <Link href="/music" className="border border-white/30 px-6 py-4 transition hover:border-amber-200">Explore my catalogue</Link>
+          </div>
+          <div className="mt-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+            <span className="h-px w-10 bg-amber-200/70" /> Sound · Studio · Culture
+          </div>
         </div>
-
-        <button
-          onClick={() => {
-            const next = document.getElementById("bio");
-            if (next) {
-              next.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="mt-8 w-fit font-mono text-xs uppercase tracking-[0.4em] text-white/45 transition hover:text-white"
-        >
-          ENTER SITE
-        </button>
-
-      </motion.div>
+        <div className="relative mx-auto flex w-full max-w-xl flex-col gap-5">
+          <div className="relative hidden aspect-[4/5] overflow-hidden border border-white/15 sm:block">
+            <Image src="/covers/ME.PNG" alt="CDVRS at the mixing desk in the studio" fill sizes="(max-width: 1023px) 100vw, 45vw" preload className="object-cover" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
+            <p className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">Inside the world · CDVRS</p>
+          </div>
+          <a href={southbound.spotify} target="_blank" rel="noopener noreferrer" className="relative flex w-full items-center gap-4 border border-white/20 bg-[#171410] p-3 shadow-2xl transition hover:border-amber-200" aria-label="Listen to the SOUTHBOUND project by CDVRS on Spotify">
+            <Image src="/covers/Southbound.png" alt="SOUTHBOUND artwork" width={88} height={88} className="h-20 w-20 object-cover sm:h-16 sm:w-16 lg:h-24 lg:w-24" />
+            <div className="pr-2">
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-amber-200">Start here · SOUTHBOUND</p>
+              <p className="mt-2 text-xs text-white/75 lg:text-sm">REFLECT / SOUTHBOUND / BAKE</p>
+              <p className="mt-3 text-sm font-bold">Listen to the project ↗</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

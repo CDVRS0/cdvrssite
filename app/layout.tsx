@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ConversionTracking from "./components/ConversionTracking";
 import Providers from "./providers";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cdvrswrld.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cdvrswrld.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     ],
   },
   title: {
-    default: "CDVRS | Artist, Producer & Creative Visionary",
+    default: "CDVRS | Recording Artist & Producer",
     template: "%s | CDVRS",
   },
   description:
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    title: "CDVRS | Artist, Producer & Creative Visionary",
+    title: "CDVRS | Recording Artist & Producer",
     description:
       "Music, production, artist discovery, sports, culture, and creative projects from CDVRS.",
     siteName: "CDVRS",
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CDVRS | Artist, Producer & Creative Visionary",
+    title: "CDVRS | Recording Artist & Producer",
     description:
       "Official CDVRS website for music, production, culture, and creative projects.",
     images: ["/covers/ME.PNG"],
@@ -66,14 +68,19 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "CDVRS",
+    name: "Cameron Dankwa",
+    alternateName: "CDVRS",
+    "@id": `${siteUrl}/#artist`,
     url: siteUrl,
-    jobTitle: "Artist and Producer",
-    description: "UK-based artist, producer, and creative visionary.",
+    jobTitle: "Recording Artist, Producer and Mixing/Mastering Engineer",
+    description: "UK-based recording artist, producer and audio engineer. COO at Grind & Ghost.",
+    worksFor: { "@type": "Organization", name: "Grind & Ghost", url: "https://www.grindandghost.com" },
     image: `${siteUrl}/covers/ME.PNG`,
     sameAs: [
+      "https://muso.ai/profile/08f30171-fa42-4684-9274-b4023eeb2deb",
+      "https://muso.ai/profile/0557c41a-f5c3-493b-8fab-a0550d772f38",
       "https://www.instagram.com/camerondankwa/",
-      "https://www.tiktok.com/@cdvrs",
+      "https://www.tiktok.com/@cdvrs_",
       "https://www.youtube.com/@CDVRSWRLD",
       "https://open.spotify.com/artist/1C1YzVPfV5sNBGwhMsNFRl",
     ],
@@ -89,6 +96,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <Providers>{children}</Providers>
+        <Analytics />
+        <ConversionTracking />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Cameron Dankwa CDVRS",
   description:
-    "Learn about Cameron Dankwa, known as CDVRS: a UK-based artist, producer, engineer, and creative visionary building a world through music, sport, and culture.",
+    "Learn about Cameron Dankwa, known as CDVRS: a UK-based recording artist, producer and audio engineer, and COO at Grind & Ghost.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Cameron Dankwa CDVRS",
