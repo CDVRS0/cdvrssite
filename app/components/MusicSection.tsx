@@ -1,7 +1,61 @@
 import Image from "next/image";
 import Link from "next/link";
 import catalogue from "../data/discography.json";
-const release=catalogue.find(r=>r.title==="SOUTHBOUND")!;
+const release = catalogue.find((r) => r.title === "SOUTHBOUND")!;
 export default function MusicSection() {
- return <section id="music" className="artist-release"><div className="release-art"><span className="eyebrow">ON ROTATION / 2026</span><div className="record-sleeve"><Image src="/covers/Southbound.png" alt="SOUTHBOUND cover artwork" fill sizes="(max-width: 700px) 85vw, 42vw" className="object-cover"/></div><span className="record-caption">REFLECT — SOUTHBOUND — BAKE</span></div><div className="release-copy"><p className="eyebrow">A little reflection. A change of pace.</p><h2>Head<br/><em>southbound.</em></h2><p>Three tracks, three states of mind. Lo-fi hip-hop, Miami bass and amapiano — somewhere between where you’ve been and where you’re going.</p><div className="release-links"><a className="artist-button" href={release.spotify} target="_blank" rel="noopener noreferrer">Listen on Spotify ↗</a><a href={release.apple} target="_blank" rel="noopener noreferrer">Apple Music ↗</a></div><Link href="/music" className="text-link">More records. More stories. Explore the catalogue ↗</Link><p className="press-note">As featured in <a href="https://diymusician.cdbaby.com/news/artist-release-roundup-june-2026/" target="_blank" rel="noopener noreferrer">CD Baby’s Artist Release Roundup ↗</a></p></div></section>;
+  return (
+    <section id="music" className="artist-release">
+      <div className="release-art">
+        <span className="eyebrow">ON ROTATION / 2026</span>
+        <div className="record-sleeve">
+          <Image
+            src="/covers/Southbound.png"
+            alt="SOUTHBOUND cover artwork"
+            fill
+            sizes="(max-width: 700px) 85vw, 42vw"
+            className="object-cover"
+          />
+        </div>
+        <span className="record-caption">REFLECT — SOUTHBOUND — BAKE</span>
+      </div>
+      <div className="release-copy">
+        <p className="eyebrow">A little reflection. A change of pace.</p>
+        <h2>
+          Head
+          <br />
+          <em>southbound.</em>
+        </h2>
+        <p>
+          Three tracks, three states of mind. Lo-fi hip-hop, Miami bass and
+          amapiano — somewhere between where you’ve been and where you’re going.
+        </p>
+        <div className="release-links">
+          <a
+            className="artist-button"
+            href={release.spotify}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Listen on Spotify ↗
+          </a>
+          <a href={release.apple} target="_blank" rel="noopener noreferrer">
+            Apple Music ↗
+          </a>
+        </div>
+        <Link href="/music" className="text-link">
+          More records. More stories. Explore the catalogue ↗
+        </Link>
+        <p className="press-note">
+          As featured in{" "}
+          <a
+            href="https://diymusician.cdbaby.com/news/artist-release-roundup-june-2026/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CD Baby’s Artist Release Roundup ↗
+          </a>
+        </p>
+      </div>
+    </section>
+  );
 }

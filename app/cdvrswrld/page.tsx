@@ -3,5 +3,98 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import ArtistJournal from "../components/ArtistJournal";
 export default function WorldPage() {
- return <main className="artist-site"><Navbar/><section className="world-intro"><p className="eyebrow">CDVRSWRLD / BEHIND THE NAME</p><h1>The music is CDVRS.<br/>The story is <em>Cameron.</em></h1><div className="world-intro-grid"><div className="world-portrait"><Image src="/covers/HAPPY_C.JPG" alt="Cameron Dankwa smiling outside" fill sizes="(max-width: 700px) 90vw, 40vw" className="object-cover" style={{objectPosition:"center 38%"}}/></div><div className="world-story"><span className="handwritten">still becoming.</span><p>I’m Cameron Dankwa, a UK-based recording artist, producer and mixing/mastering engineer. CDVRS is where I put the things I hear, feel and imagine.</p><h2>From experimenting<br/>to making records.</h2><p>My production and engineering practice grew through university, the lockdown years, Logic, FL Studio and collaborations. Mixing vocals for friends became a craft of its own.</p><p>Alongside my own records, I work with artists and serve as COO at Grind &amp; Ghost. Music connects it all — the craft, the people and the possibilities.</p><Link className="text-link" href="/music#credits">Explore the work behind the records ↗</Link></div></div></section><ArtistJournal full/><section id="cdvrswrld" className="world-projects"><p className="eyebrow">THE WORLD KEEPS GROWING</p><h2>Beyond<br/><em>the records.</em></h2>{[{name:"No Pressure",copy:"Making room for emerging artists, discovery and collaborations.",href:"/no-pressure"},{name:"CDVLabs",copy:"Beats and instrumentals. The starting point for your next idea.",href:"https://beats.cdvrswrld.com/"},{name:"CDVRS Sports",copy:"Basketball, Takeover 3x3 and the community around the court.",href:"/sports"},{name:"Events & the next tournament",copy:"Revisit the moments. Join the waiting list for what comes next.",href:"/events"},{name:"The shop",copy:"Explore the available music and official store.",href:"/shop"}].map((p,i)=><Link href={p.href} key={p.name} className="world-project"><span>0{i+1}</span><h3>{p.name}</h3><p>{p.copy}</p><span aria-hidden="true">↗</span></Link>)}</section></main>;
+  return (
+    <main className="artist-site">
+      <Navbar />
+      <section className="world-intro">
+        <p className="eyebrow">CDVRSWRLD / BEHIND THE NAME</p>
+        <h1>
+          The music is CDVRS.
+          <br />
+          The story is <em>Cameron.</em>
+        </h1>
+        <div className="world-intro-grid">
+          <div className="world-portrait">
+            <Image
+              src="/covers/HAPPY_C.JPG"
+              alt="Cameron Dankwa smiling outside"
+              fill
+              sizes="(max-width: 700px) 90vw, 40vw"
+              className="object-cover"
+              style={{ objectPosition: "center 38%" }}
+            />
+          </div>
+          <div className="world-story">
+            <span className="handwritten">still becoming.</span>
+            <p>
+              I’m Cameron Dankwa, a UK-based recording artist, producer and
+              mixing/mastering engineer. CDVRS is where I put the things I hear,
+              feel and imagine.
+            </p>
+            <h2>
+              From experimenting
+              <br />
+              to making records.
+            </h2>
+            <p>
+              My production and engineering practice grew through university,
+              the lockdown years, Logic, FL Studio and collaborations. Mixing
+              vocals for friends became a craft of its own.
+            </p>
+            <p>
+              Alongside my own records, I work with artists and serve as COO at
+              Grind &amp; Ghost. Music connects it all — the craft, the people
+              and the possibilities.
+            </p>
+            <Link className="text-link" href="/music#credits">
+              Explore the work behind the records ↗
+            </Link>
+          </div>
+        </div>
+      </section>
+      <ArtistJournal full />
+      <section id="cdvrswrld" className="world-projects">
+        <p className="eyebrow">THE WORLD KEEPS GROWING</p>
+        <h2>
+          Beyond
+          <br />
+          <em>the records.</em>
+        </h2>
+        {[
+          {
+            name: "No Pressure",
+            copy: "Making room for emerging artists, discovery and collaborations.",
+            href: "/no-pressure",
+          },
+          {
+            name: "CDVLabs",
+            copy: "Beats and instrumentals. The starting point for your next idea.",
+            href: "https://beats.cdvrswrld.com/",
+          },
+          {
+            name: "CDVRS Sports",
+            copy: "Basketball, Takeover 3x3 and the community around the court.",
+            href: "/sports",
+          },
+          {
+            name: "Events & the next tournament",
+            copy: "Revisit the moments. Join the waiting list for what comes next.",
+            href: "/events",
+          },
+          {
+            name: "The shop",
+            copy: "Explore the available music and official store.",
+            href: "/shop",
+          },
+        ].map((p, i) => (
+          <Link href={p.href} key={p.name} className="world-project">
+            <span>0{i + 1}</span>
+            <h3>{p.name}</h3>
+            <p>{p.copy}</p>
+            <span aria-hidden="true">↗</span>
+          </Link>
+        ))}
+      </section>
+    </main>
+  );
 }

@@ -7,12 +7,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cdvrswrld" },
   openGraph: {
     title: "My World — Cameron Dankwa",
-    description:
-      "The person, the process and the world behind CDVRS.",
+    description: "The person, the process and the world behind CDVRS.",
     url: "/cdvrswrld",
   },
 };
 
-export default function CDVRSWorldLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function CDVRSWorldLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return children;
 }
