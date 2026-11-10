@@ -8,11 +8,11 @@
   --background: 242 238 229;
   --foreground: 34 32 28;
   --muted: 99 94 85;
-  --accent: 165 32 43;
+  --accent: 34 67 190;
   --surface: 34 32 28;
 }
 ::selection {
-  background: #a5202b;
+  background: #2243be;
   color: #fff4de;
 }
 a,
@@ -21,7 +21,7 @@ button {
 }
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #a5202b;
+  outline: 2px solid #2243be;
   outline-offset: 6px;
 }
 .artist-site {
@@ -66,12 +66,12 @@ button:focus-visible {
 }
 .artist-nav nav a[aria-current="page"] {
   text-decoration: underline;
-  text-decoration-color: #a5202b;
+  text-decoration-color: #2243be;
   text-underline-offset: 8px;
 }
 .nav-contact span {
   margin-left: 16px;
-  color: #a5202b;
+  color: #2243be;
 }
 .eyebrow {
   font:
@@ -103,7 +103,7 @@ button:focus-visible {
   letter-spacing: -0.085em;
   line-height: 0.88;
   margin: 25px 0 0 -0.015em;
-  color: #a5202b;
+  color: #2243be;
   position: relative;
   z-index: 2;
 }
@@ -130,7 +130,7 @@ button:focus-visible {
   font:
     italic 28px/1.3 Georgia,
     serif;
-  color: #a5202b;
+  color: #2243be;
   transform: rotate(-6deg);
   display: inline-block;
 }
@@ -162,7 +162,7 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  background: #a5202b;
+  background: #2243be;
   color: #fff9ec;
   padding: 17px 24px;
   font-size: 12px;
@@ -172,7 +172,7 @@ button:focus-visible {
     transform 0.2s;
 }
 .artist-button:hover {
-  background: #7b1720;
+  background: #172e87;
   transform: translateY(-2px);
 }
 .hero-copy .artist-button {
@@ -236,10 +236,10 @@ button:focus-visible {
   display: grid;
   align-content: center;
   text-align: center;
-  border: 1px solid #a5202b;
+  border: 1px solid #2243be;
   border-radius: 50%;
   background: #f2eee5;
-  color: #a5202b;
+  color: #2243be;
   font:
     bold 13px/1.2 ui-monospace,
     monospace;
@@ -255,7 +255,7 @@ button:focus-visible {
   text-underline-offset: 4px;
 }
 .artist-ticker {
-  background: #a5202b;
+  background: #2243be;
   color: #fff2de;
   padding: 20px 4.5%;
   text-align: center;
@@ -440,7 +440,7 @@ button:focus-visible {
     monospace;
 }
 .artist-footer {
-  background: #a5202b;
+  background: #2243be;
   color: #fff2de;
   padding: 65px 4.5% 22px;
 }
@@ -540,7 +540,7 @@ button:focus-visible {
   font:
     11px ui-monospace,
     monospace;
-  color: #a5202b;
+  color: #2243be;
 }
 .world-project h3 {
   font-size: clamp(22px, 3vw, 40px);
@@ -558,7 +558,7 @@ button:focus-visible {
 .music-page h1 {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: -4px;
-  color: #a5202b;
+  color: #2243be;
 }
 .music-page h2 {
   letter-spacing: -1.5px;
