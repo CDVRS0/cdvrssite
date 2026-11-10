@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import ConversionTracking from "./components/ConversionTracking";
+import Footer from "./components/Footer";
 import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import "./artist.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cdvrswrld.com";
 
@@ -95,7 +97,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Providers>{children}</Providers>
+        <Providers>{children}<Footer /></Providers>
         <Analytics />
         <ConversionTracking />
       </body>

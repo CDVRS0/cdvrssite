@@ -2,7 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 import SmoothScroll from "./components/SmoothScroll";
-import ThemeSwitcher from "./components/ThemeSwitcher";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +15,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     >
       {children}
       <SmoothScroll />
-      <ThemeSwitcher />
+
     </ThemeProvider>
   );
 }

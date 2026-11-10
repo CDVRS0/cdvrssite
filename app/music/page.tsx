@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Discography from "../components/Discography";
 import CreditsSection from "../components/CreditsSection";
 import MusicVideos from "../components/MusicVideos";
@@ -10,7 +9,7 @@ const southbound = releases.find((release) => release.title === "SOUTHBOUND")!;
 
 export default function MusicPage() {
   return (
-    <div className="min-h-screen bg-[rgb(var(--background))] text-[rgb(var(--foreground))]">
+    <div className="artist-site music-page min-h-screen">
       <Navbar />
       <main>
         <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 pt-44 sm:px-10 lg:grid-cols-2 lg:items-center xl:px-0">
@@ -47,7 +46,7 @@ export default function MusicPage() {
         <Discography />
         <CreditsSection />
       </main>
-      <Footer />
+
     </div>
   );
 }

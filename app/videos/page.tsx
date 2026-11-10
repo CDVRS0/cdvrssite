@@ -1,10 +1,9 @@
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import MusicVideos from "../components/MusicVideos";
 
 export default function VideosPage() {
   return (
-    <div className="min-h-screen bg-[rgb(var(--background))] text-[rgb(var(--foreground))]">
+    <div className="artist-site music-page min-h-screen">
       <Navbar />
       <main>
         <header className="mx-auto max-w-6xl px-6 pb-16 pt-44 sm:px-10">
@@ -15,7 +14,7 @@ export default function VideosPage() {
         </header>
         <MusicVideos standalone />
       </main>
-      <Footer />
+
     </div>
   );
 }

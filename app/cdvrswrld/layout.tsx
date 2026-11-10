@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CDVRSWRLD Creative Platform",
+  title: "My World — Cameron Dankwa",
   description:
-    "Enter CDVRSWRLD, the creative platform connecting CDVRS music, No Pressure, CDVRS Sports, CDVlabs, and community.",
+    "Meet Cameron Dankwa, the person behind CDVRS. Photographs, the story behind the music, and the creative world around it.",
   alternates: { canonical: "/cdvrswrld" },
   openGraph: {
-    title: "CDVRSWRLD Creative Platform",
+    title: "My World — Cameron Dankwa",
     description:
-      "Discover the music, sports, culture, and creative projects inside CDVRSWRLD.",
+      "The person, the process and the world behind CDVRS.",
     url: "/cdvrswrld",
   },
 };
