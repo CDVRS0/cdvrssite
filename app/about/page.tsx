@@ -26,8 +26,8 @@ export default function AboutPage() {
         </h1>
 
         <p className="mt-8 max-w-2xl text-lg leading-8 text-[rgb(var(--muted))]">
-          Cameron Dankwa, known as CDVRS, is a UK-based producer, artist,
-          engineer, and creative visionary blending cinematic production,
+          Cameron Dankwa, known as CDVRS, is a UK-based recording artist, producer,
+          and mixing/mastering engineer blending cinematic production,
           atmospheric sound design, and emotionally driven music.
         </p>
       </motion.div>
@@ -42,13 +42,15 @@ export default function AboutPage() {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl font-light text-[rgb(var(--accent))]">
-            The Vision
+            Artist biography
           </h2>
 
           <p className="mt-4 text-[rgb(var(--muted))] leading-7">
-            Build an artist world where every release has a sound, visual
-            direction, and clear story. CDVRSWRLD expands the world around the
-            artist through music, production, sport, culture, and community.
+            CDVRS builds music around atmosphere, emotion and movement. His 2026 EP
+            SOUTHBOUND moves between lo-fi hip-hop, Miami bass and amapiano, and
+            featured in CD Baby’s June Artist Release Roundup. Alongside his
+            recording and production work, Cameron serves as COO at Grind &amp; Ghost,
+            connecting his own artistic practice with support for emerging talent.
           </p>
         </motion.div>
 
@@ -82,8 +84,13 @@ export default function AboutPage() {
           <p className="mt-4 text-[rgb(var(--muted))] leading-7">
             CDVRSWRLD is the wider creative platform around CDVRS. It brings
             together music, No Pressure artist discovery, CDVRS Sports, CDVlabs,
-            visual work, and community.
+            visual work, and community. CDVRS remains the recording artist at its
+            centre; CDVLabs is the home for beats and instrumentals, No Pressure
+            focuses on artist discovery, and CDVRS Sports brings basketball and
+            culture together.
           </p>
+          <a href="/music" className="mt-6 inline-block underline underline-offset-4">Explore CDVRS releases</a>
+          <a href="/contact" className="ml-6 mt-6 inline-block underline underline-offset-4">Production &amp; engineering enquiries</a>
         </motion.div>
 
       </div>

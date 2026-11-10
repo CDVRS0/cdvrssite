@@ -1,65 +1,12 @@
 "use client";
 
-import type { FormEvent } from "react";
-import Script from "next/script";
+import EnquiryDraft from "../components/EnquiryDraft";
+import { tournamentWaitingList } from "../data/tournament";
 import Navbar from "../components/Navbar";
-
-const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-
-  const data = new FormData(event.currentTarget);
-  const name = String(data.get("name") ?? "").trim();
-  const email = String(data.get("email") ?? "").trim();
-  const subject = String(data.get("subject") ?? "").trim();
-  const message = String(data.get("message") ?? "").trim();
-
-  if (!name || !email || !message) {
-    alert("Please fill in your name, email and message.");
-    return;
-  }
-
-  if (!recaptchaSiteKey || !window.grecaptcha) {
-    alert("The security check is not ready. Please try again.");
-    return;
-  }
-
-  await new Promise<void>((resolve) => window.grecaptcha.ready(resolve));
-  const token = await window.grecaptcha.execute(recaptchaSiteKey, {
-    action: "contact_submit",
-  });
-  const verification = await fetch("/api/recaptcha", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token }),
-  });
-
-  if (!verification.ok) {
-    alert("Security verification failed. Please try again.");
-    return;
-  }
-
-  const body = encodeURIComponent(
-    `From: ${name} (${email})\n\n${message}`,
-  );
-  const encodedSubject = encodeURIComponent(
-    subject || "CDVRS Sports Enquiry",
-  );
-
-  window.location.href =
-    `mailto:npglobalmusic@gmail.com?subject=${encodedSubject}&body=${body}`;
-}
 
 export default function SportsPage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {recaptchaSiteKey && (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
-          strategy="afterInteractive"
-        />
-      )}
       <Navbar />
 
       <main>
@@ -79,6 +26,20 @@ export default function SportsPage() {
               Basketball, culture, visuals, live runs, events, and creative
               moments around sport.
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a className="border border-white px-6 py-4 font-mono text-xs uppercase" href={tournamentWaitingList}>Join the next tournament waiting list ↗</a>
+              <a className="border border-white/30 px-6 py-4 font-mono text-xs uppercase" href="#register-interest">CD4Q runs &amp; scrimmages</a>
+              <a className="border border-white/30 px-6 py-4 font-mono text-xs uppercase" href="/contact?type=sports">Partnership enquiries</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="tournament" className="scroll-mt-36 border-t border-white/10 px-6 py-16 sm:px-10">
+          <div className="mx-auto max-w-6xl">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-[rgb(var(--accent))]">Next tournament</p>
+            <h2 className="mt-4 font-mono text-3xl font-black uppercase md:text-5xl">Be part of the next one.</h2>
+            <p className="mt-6 max-w-2xl leading-8 text-white/65">Join our tournament waiting list on Tally. Add your details there to register your interest. A waiting-list entry is not a ticket, payment or guaranteed place. Confirmed dates, venue and entry details will be announced separately.</p>
+            <a href={tournamentWaitingList} className="mt-8 inline-block border border-white px-6 py-4 font-mono text-sm">Join the tournament waiting list ↗</a>
           </div>
         </section>
 
@@ -140,7 +101,7 @@ export default function SportsPage() {
         <section className="border-t border-white/10 px-6 py-24 sm:px-10">
           <div className="mx-auto max-w-6xl">
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
-              Latest Event
+              Past event highlights
             </p>
 
             <h2 className="mb-12 font-mono text-4xl font-black uppercase md:text-6xl">
@@ -153,7 +114,7 @@ export default function SportsPage() {
                   src="/World/Sports/takeover.mp4"
                     className="h-full w-full"
                     title="Takeover 3x3 Basketball highlights"
-                    autoPlay
+                    preload="none"
                     muted
                     loop
                     playsInline
@@ -169,59 +130,28 @@ export default function SportsPage() {
                   Takeover 3x3 Basketball
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-white/60">
-                  Highlights from the latest CDVRS Sports basketball event.
+                  Revisit Takeover 3x3. These are highlights from a past event, not an announcement of a future date.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="border-t border-white/10 px-6 py-24 sm:px-10">
+        <section id="register-interest" className="scroll-mt-36 border-t border-white/10 px-6 py-24 sm:px-10">
           <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
             <div>
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.4em] text-[rgb(var(--accent))]">
                 Get In Touch
               </p>
               <h2 className="font-mono text-4xl font-black uppercase md:text-5xl">
-                Work With
+                Join the
                 <br />
-                CDVRS Sports
+                next run
               </h2>
+              <p className="mt-6 leading-8 text-white/65">Ask about CD4Q runs and scrimmages or discuss a Sports partnership. For the next tournament, use the waiting list above. Session enquiries do not reserve a place or subscribe you to updates.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <input
-                name="name"
-                required
-                placeholder="Your name"
-                className="border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-[rgb(var(--accent))]"
-              />
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="your@email.com"
-                className="border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-[rgb(var(--accent))]"
-              />
-              <input
-                name="subject"
-                placeholder="Subject"
-                className="border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-[rgb(var(--accent))]"
-              />
-              <textarea
-                name="message"
-                required
-                rows={5}
-                placeholder="Tell us about your enquiry..."
-                className="resize-none border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-[rgb(var(--accent))]"
-              />
-              <button
-                type="submit"
-                className="border border-white px-8 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] transition hover:border-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))]"
-              >
-                Send Message
-              </button>
-            </form>
+            <EnquiryDraft initialType="cd4q" types={["cd4q", "sports"]} />
           </div>
         </section>
       </main>

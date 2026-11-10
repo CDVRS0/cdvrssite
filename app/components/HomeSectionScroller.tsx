@@ -22,7 +22,7 @@ export default function HomeSectionScroller() {
     }
 
     window.requestAnimationFrame(() => {
-      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(section === "contact" ? "socials" : section === "cdvrswrld" ? "bio" : section)?.scrollIntoView({ behavior: "smooth" });
     });
   }, [searchParams]);
 
