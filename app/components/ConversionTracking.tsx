@@ -14,7 +14,9 @@ export default function ConversionTracking() {
       const category = anchor.href === tournamentWaitingList ? "tournament_waiting_list" :
         ["open.spotify.com", "music.apple.com", "ditto.fm", "ffm.to", "song.link"].includes(url.hostname) ? "music" :
         url.hostname === "beats.cdvrswrld.com" ? "beats" : null;
-      if (category) track("destination_click", { category, page: window.location.pathname });
+      if (category) {
+        try { track("destination_click", { category, page: window.location.pathname }); } catch { /* Navigation remains available if analytics is blocked. */ }
+      }
     }
     document.addEventListener("click", clicked);
     return () => document.removeEventListener("click", clicked);

@@ -40,7 +40,7 @@ export default function EnquiryDraft({ initialType = "bookings", types = Object.
         const reply = await result.json();
         if (!result.ok || !reply.success) throw new Error(reply.error || "Your message could not be sent. Please try again or email us directly.");
         setNotice(`Your enquiry has been accepted. Reference: ${reply.reference}. We’ll reply to the email address you provided.`);
-        track("enquiry_accepted", { category: type });
+        try { track("enquiry_accepted", { category: type }); } catch { /* Analytics must not change a successful submission. */ }
         form.reset();
         startedAt.current = Date.now();
       } catch (error) {
