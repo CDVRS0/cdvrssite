@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SouthboundPress from "../components/SouthboundPress";
 import Navbar from "../components/Navbar";
 import Discography from "../components/Discography";
 import CreditsSection from "../components/CreditsSection";
@@ -38,6 +39,7 @@ export default function MusicPage() {
                 <a href={southbound.apple} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Apple Music ↗</a>
                 <a href="https://diymusician.cdbaby.com/news/artist-release-roundup-june-2026/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Read the CD Baby feature ↗</a>
               </div>
+              <SouthboundPress />
             </div>
             <iframe title="Listen to SOUTHBOUND by CDVRS on Spotify" src="https://open.spotify.com/embed/album/5wjmUNQHPoRSoVRvpMVhZJ" height="352" loading="lazy" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" className="w-full rounded-xl border-0" />
           </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SouthboundPress from "./SouthboundPress";
 import Link from "next/link";
 import catalogue from "../data/discography.json";
 const release = catalogue.find((r) => r.title === "SOUTHBOUND")!;
@@ -45,6 +46,7 @@ export default function MusicSection() {
         <Link href="/music" className="text-link">
           More records. More stories. Explore the catalogue ↗
         </Link>
+        <SouthboundPress />
         <p className="press-note">
           As featured in{" "}
           <a
